@@ -11,5 +11,10 @@ pipeline {
         sh 'mvn tomcat7:deploy'
       }
     }
+    stage('Observe') {
+      steps {
+        sh 'ls -la && pwd'
+      }
+    }
   }
 }

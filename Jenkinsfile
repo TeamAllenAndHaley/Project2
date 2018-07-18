@@ -1,9 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Hello, World!') {
+    stage('Build') {
       steps {
-        echo 'Hello, World!'
+        sh 'mvn clean package -DskipTests'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'mvn tomcat:7 deploy'
       }
     }
   }

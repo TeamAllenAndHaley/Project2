@@ -69,7 +69,7 @@
           <configuration>
             <url>${TOMCAT_DEPLOY_URL}</url>
             <server>localhost</server>
-            <path>/</path>
+            <path>/test</path>
             <update>true</update>
           </configuration>
         </plugin>

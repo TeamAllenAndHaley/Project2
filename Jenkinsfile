@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'mvn tomcat:7 deploy'
+        sh 'mvn tomcat7:deploy'
       }
     }
   }

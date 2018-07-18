@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Building Angular project...'
         sh '''cd angular
-npm i
+npm i --unsafe-perm
 npm run build
 cd ..'''
         echo 'Replacing Angular dist into Java webapp...'

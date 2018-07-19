@@ -2,12 +2,7 @@ pipeline {
   agent any
   stages {
     stage('npm:build') {
-      agent {
-        node {
-          label 'node'
-        }
-
-      }
+      agent any
       steps {
         echo 'Building angular app...'
         sh 'cd angular && npm install && npm run build && cd ..'

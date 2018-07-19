@@ -30,6 +30,7 @@ public class Employee {
 
     @Id
     @Column(name = "emp_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getEmpId() {
         return empId;
     }

@@ -6,7 +6,7 @@ pipeline {
       steps {
         sh 'sudo service tomcat stop'
         echo 'Building angular app...'
-        sh 'cd angular && yarn && yarn run build && cd ..'
+        sh 'cd angular && yarn && yarn run build:prod && cd ..'
         sh '''mv src/main/webapp/WEB-INF/ src/main/
 rm -r src/main/webapp/
 mv angular/dist/webapp/ src/main/

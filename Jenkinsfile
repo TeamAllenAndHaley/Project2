@@ -19,7 +19,8 @@ pipeline {
     stage('maven:deploy') {
       steps {
         echo 'Deploying to tomcat...'
-        sh 'mvn tomcat:run'
+        sh 'service tomcat start'
+        sh 'mvn tomcat7:deploy'
       }
     }
   }

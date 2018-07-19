@@ -1,12 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('yarn:build') {
+    stage('npm:build') {
       agent any
       steps {
         sh 'sudo service tomcat stop'
         echo 'Building angular app...'
-        sh 'cd angular && yarn && yarn run build:prod && cd ..'
+        sh 'cd angular && npm i && npm run build:prod && cd ..'
         sh '''mv src/main/webapp/WEB-INF/ src/main/
 rm -r src/main/webapp/
 mv angular/dist/webapp/ src/main/

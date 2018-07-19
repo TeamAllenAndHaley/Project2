@@ -12,7 +12,6 @@ rm -r src/main/webapp/
 mv angular/dist/webapp/ src/main/
 mv src/main/WEB-INF/ src/main/webapp/
 '''
-        sh 'sudo service tomcat start'
       }
     }
     stage('maven:build') {
@@ -24,6 +23,7 @@ mv src/main/WEB-INF/ src/main/webapp/
     stage('maven:deploy') {
       steps {
         echo 'Deploying to tomcat...'
+        sh 'sudo service tomcat start'
         sh 'mvn tomcat7:deploy'
       }
     }

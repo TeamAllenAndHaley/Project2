@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('npm:build') {
+    stage('yarn:build') {
       agent any
       steps {
         echo 'Building angular app...'
@@ -11,6 +11,7 @@ rm -r src/main/webapp/
 mv angular/dist/webapp/ src/main/
 mv src/main/WEB-INF/ src/main/webapp/
 '''
+        sh 'ls -la src/main/ && ls -la src/main/webapp/'
       }
     }
     stage('maven:build') {

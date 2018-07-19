@@ -4,10 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building Angular project...'
-        sh '''cd angular
-npm i --unsafe-perm
-npm run build
-cd ..'''
+        sh 'cd angular && npm install && npm run build && cd ..'
         echo 'Replacing Angular dist into Java webapp...'
         sh '''mv src/main/webapp/WEB-INF/ src/main/
 rm -r src/main/webapp/

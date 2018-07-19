@@ -5,7 +5,7 @@ pipeline {
       agent any
       steps {
         echo 'Building angular app...'
-        sh 'cd angular && npm install && npm run build && cd ..'
+        sh 'cd angular && yarn && yarn run build && cd ..'
         sh '''mv src/main/webapp/WEB-INF/ src/main/
 rm -r src/main/webapp/
 mv angular/dist/webapp/ src/main/

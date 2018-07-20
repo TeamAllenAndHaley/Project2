@@ -5,7 +5,7 @@ pipeline {
       agent any
       steps {
         echo 'Building angular app...'
-        sh 'sudo service tomcat stop'
+        sh 'service tomcat stop'
         sh 'cd src/angular && yarn && yarn run build:prod && cd ../..'
       }
     }

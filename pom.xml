@@ -15,6 +15,8 @@
 
   <properties>
     <java.version>1.8</java.version>
+    <spring.version>4.3.13.RELEASE</spring.version>
+    <jackson.version>2.8.10</jackson.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -30,12 +32,17 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>4.3.13.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>4.3.13.RELEASE</version>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -45,22 +52,17 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.8.10</version>
+      <version>${jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.8.10</version>
+      <version>${jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>9.4.1212.jre7</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-orm</artifactId>
-      <version>4.3.13.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -99,8 +101,8 @@
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.0</version>
           <!--<configuration>-->
-            <!--<warSourceDirectory>angular\dist\angular\</warSourceDirectory>-->
-            <!--<webXml>src\main\webapp\WEB-INF\web.xml</webXml>-->
+            <!--<warSourceDirectory>angular/dist/angular/</warSourceDirectory>-->
+            <!--<webXml>src/main/webapp/WEB-INF/web.xml</webXml>-->
           <!--</configuration>-->
         </plugin>
         <plugin>

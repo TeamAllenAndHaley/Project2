@@ -12,14 +12,14 @@ pipeline {
     stage('maven:build') {
       steps {
         echo 'Building java app...'
-        sh 'mvn clean package -DskipTests'
+        sh 'mvn clean package -DskipTests -x -e'
       }
     }
     stage('maven:deploy') {
       steps {
         echo 'Deploying to tomcat...'
         sh 'sudo service tomcat start'
-        sh 'mvn tomcat7:deploy -DskipTests'
+        sh 'mvn tomcat7:deploy -DskipTests -x -e'
       }
     }
   }

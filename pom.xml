@@ -120,7 +120,7 @@
           <configuration>
             <url>${TOMCAT_DEPLOY_URL}</url>
             <server>localhost</server>
-            <path>/app</path>
+            <path>/theapp</path>
             <update>true</update>
           </configuration>
         </plugin>

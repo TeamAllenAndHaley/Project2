@@ -101,7 +101,7 @@
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.0</version>
           <configuration>
-            <warSourceDirectory>angular/dist/webapp/</warSourceDirectory>
+            <warSourceDirectory>src/angular/dist/webapp/</warSourceDirectory>
             <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
           </configuration>
         </plugin>

@@ -4,9 +4,9 @@ pipeline {
     stage('yarn:build') {
       agent any
       steps {
-        sh 'sudo service tomcat stop'
         echo 'Building angular app...'
-        sh 'cd src/angular && yarn && yarn run build:prod'
+        sh 'sudo service tomcat stop'
+        sh 'cd src/angular && yarn && yarn run build:prod && cd ../..'
       }
     }
     stage('maven:build') {

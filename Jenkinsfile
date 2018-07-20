@@ -20,7 +20,7 @@ pipeline {
       steps {
         echo 'Deploying to tomcat...'
         sh 'service tomcat start'
-        sh 'mvn tomcat7:deploy'
+        sh 'mvn tomcat7:deploy -DskipTests'
       }
     }
   }

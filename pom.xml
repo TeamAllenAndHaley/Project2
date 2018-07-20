@@ -98,9 +98,10 @@
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.0</version>
-          <configuration>
-            <warSourceDirectory>angular/dist/angular/</warSourceDirectory>
-          </configuration>
+          <!--<configuration>-->
+            <!--<warSourceDirectory>angular/dist/angular/</warSourceDirectory>-->
+            <!--<webXml>src/main/webapp/WEB-INF/web.xml</webXml>-->
+          <!--</configuration>-->
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>

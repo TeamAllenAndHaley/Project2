@@ -6,7 +6,7 @@ pipeline {
       steps {
         sh 'sudo service tomcat stop'
         echo 'Building angular app...'
-        sh 'cd angular && yarn && yarn run build:prod && cd ..'
+        sh 'cd src/angular && yarn && yarn run build:prod'
       }
     }
     stage('maven:build') {

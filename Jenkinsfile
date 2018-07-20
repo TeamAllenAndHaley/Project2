@@ -5,7 +5,7 @@ pipeline {
       agent any
       steps {
         echo 'Building angular app...'
-        sh 'service tomcat stop'
+        sh 'sudo service tomcat stop'
         sh 'cd src/angular && yarn && yarn run build:prod && cd ../..'
       }
     }
@@ -18,7 +18,7 @@ pipeline {
     stage('maven:deploy') {
       steps {
         echo 'Deploying to tomcat...'
-        sh 'service tomcat start'
+        sh 'sudo service tomcat start'
         sh 'mvn tomcat7:deploy -DskipTests'
       }
     }

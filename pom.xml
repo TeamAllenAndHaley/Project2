@@ -120,8 +120,9 @@
           <configuration>
             <url>${TOMCAT_DEPLOY_URL}</url>
             <server>localhost</server>
-            <path>/app</path>
+            <path>/</path>
             <update>true</update>
+            <warSourceDirectory>/angular/dist/webapp</warSourceDirectory>
           </configuration>
         </plugin>
       </plugins>

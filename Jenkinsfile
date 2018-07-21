@@ -13,13 +13,16 @@ pipeline {
     stage('maven:build') {
       steps {
         echo 'Building java app...'
+        sh 'pwd && ls -la && ls -la src/main/webapp'
         sh 'mvn -X clean package -DskipTests'
+        sh 'pwd && ls -la && ls -la src/main/webapp'
       }
     }
     stage('maven:deploy') {
       steps {
         echo 'Deploying to tomcat...'
         sh 'sudo service tomcat start'
+        sh 'pwd && ls -la && ls -la src/main/webapp'
         sh 'mvn -X tomcat7:deploy -DskipTests'
       }
     }

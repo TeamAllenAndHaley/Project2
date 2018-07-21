@@ -2,7 +2,6 @@ pipeline {
   agent any
   stages {
     stage('yarn:maven:build') {
-      agent any
       steps {
         echo 'Building angular app...'
         sh 'sudo service tomcat stop'

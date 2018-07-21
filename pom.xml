@@ -11,7 +11,7 @@
 
   <name>project-two-portal-app Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>http://ec2-52-9-125-77.us-west-1.compute.amazonaws.com:8080/app/</url>
 
   <properties>
     <java.version>1.8</java.version>
@@ -100,10 +100,10 @@
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.0</version>
-          <!--<configuration>-->
-            <!--<warSourceDirectory>src/angular/dist/webapp/</warSourceDirectory>-->
+          <configuration>
+            <warSourceDirectory>src/main/webapp</warSourceDirectory>
             <!--<webXml>src/main/webapp/WEB-INF/web.xml</webXml>-->
-          <!--</configuration>-->
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
@@ -120,7 +120,7 @@
           <configuration>
             <url>${TOMCAT_DEPLOY_URL}</url>
             <server>localhost</server>
-            <path>/theapp</path>
+            <path>/</path>
             <update>true</update>
           </configuration>
         </plugin>

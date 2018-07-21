@@ -1,21 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('yarn:build') {
+    stage('yarn:maven:build') {
       agent any
       steps {
         echo 'Building angular app...'
         sh 'sudo service tomcat stop'
         sh 'cd src/angular && yarn && yarn run build:prod && cd ../..'
-        sh 'pwd && ls -la && ls -la src/main/webapp'
-      }
-    }
-    stage('maven:build') {
-      steps {
         echo 'Building java app...'
         sh 'pwd && ls -la && ls -la src/main/webapp'
         sh 'mvn -X clean package -DskipTests'
-        sh 'pwd && ls -la && ls -la src/main/webapp'
       }
     }
     stage('maven:deploy') {

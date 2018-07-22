@@ -2,4 +2,3 @@
 *.iml
 *.pem
 target/
-src/main/webapp/

@@ -15,7 +15,6 @@ pipeline {
       steps {
         echo 'Deploying to tomcat...'
         sh 'sudo service tomcat start'
-        sh 'pwd && ls -la && ls -la src/main/webapp'
         sh 'mvn -X tomcat7:deploy -DskipTests'
       }
     }

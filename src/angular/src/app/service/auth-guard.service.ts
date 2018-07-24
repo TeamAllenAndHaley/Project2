@@ -9,6 +9,10 @@ export class AuthGuardService implements CanActivate {
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return null; // boolean return type
+    // TODO: make a check here for authentication and return true if valid
+    // temp: always return true for testing purposes.
+    return true;
+    // this.router.navigate(['login']);
+    // return false;
   }
 }

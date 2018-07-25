@@ -11,7 +11,7 @@
 
   <name>project-two-portal-app Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://ec2-52-9-125-77.us-west-1.compute.amazonaws.com:8080/app/</url>
+  <url>http://ec2-52-9-125-77.us-west-1.compute.amazonaws.com:8080/</url>
 
   <properties>
     <java.version>1.8</java.version>

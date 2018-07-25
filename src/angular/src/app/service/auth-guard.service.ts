@@ -11,8 +11,8 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     // TODO: make a check here for authentication and return true if valid
     // temp: always return true for testing purposes.
-    return true;
-    // this.router.navigate(['login']);
-    // return false;
+    // return true;
+    this.router.navigate(['login']);
+    return false;
   }
 }

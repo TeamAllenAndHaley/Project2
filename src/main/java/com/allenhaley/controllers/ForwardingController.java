@@ -10,24 +10,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
-@RequestMapping("/tester")
+@RequestMapping("/")
 public class ForwardingController {
-//    @GetMapping(path = "/login")
-//    public String html5Forwarding() {
-//        return "forward:/index.html";
-//    }
-//
-    @GetMapping("/")
-    @ResponseBody
-    public String testMethod() {
-        System.out.println("Hello base.");
-        return "Hello, Base!";
+    @GetMapping(path = "/login")
+    public String html5Forwarding() {
+        return "forward:/";
     }
+
+//    @GetMapping("/")
+//    @ResponseBody
+//    public String testMethod() {
+//        return "Hello, Base!";
+//    }
 
     @GetMapping("/test")
     @ResponseBody
     public String testAlso() {
-        System.out.println("Hello test.");
         return "Hello, Test!";
     }
 }

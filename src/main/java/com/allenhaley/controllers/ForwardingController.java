@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/tester")
 public class ForwardingController {
 //    @GetMapping(path = "/login")
 //    public String html5Forwarding() {

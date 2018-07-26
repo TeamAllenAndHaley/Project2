@@ -15,7 +15,7 @@ public class Housing {
 
     @OneToOne
     @JoinColumn(name="comp_id")
-    private long compId;
+    private ApartmentComplex comp;
 
     public Housing() {
     }
@@ -36,12 +36,12 @@ public class Housing {
         this.aptRoom = aptRoom;
     }
 
-    public long getCompId() {
-        return compId;
+    public ApartmentComplex getComp() {
+        return comp;
     }
 
-    public void setCompId(long compId) {
-        this.compId = compId;
+    public void setComp(ApartmentComplex comp) {
+        this.comp = comp;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class Housing {
         return "Housing{" +
                 "housingId=" + housingId +
                 ", aptRoom='" + aptRoom + '\'' +
-                ", compId=" + compId +
+                ", comp=" + comp +
                 '}';
     }
 }

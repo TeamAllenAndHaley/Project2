@@ -7,18 +7,28 @@ import java.util.Date;
 @Table(name = "ticket", schema = "public")
 public class Ticket {
 
+    @Id
+    @Column(name="ticket_id")
     private long ticketId;
+
+    @Column(name="ticket_date")
     private Date date;
+
+    @Column(name="ticket_category")
     private String category;
+
+    @Column(name="ticket_content")
     private String content;
+
+    @Column(name="ticket_status")
     private String status;
+
+    @ManyToOne
     private Employee employee;
 
     public Ticket() {
     }
 
-    @Id
-    @Column(name="ticket_id")
     public long getTicketId() {
         return ticketId;
     }
@@ -27,7 +37,6 @@ public class Ticket {
         this.ticketId = ticketId;
     }
 
-    @Column(name="ticket_date")
     public Date getDate() {
         return date;
     }
@@ -36,7 +45,6 @@ public class Ticket {
         this.date = date;
     }
 
-    @Column(name="ticket_category")
     public String getCategory() {
         return category;
     }
@@ -45,7 +53,6 @@ public class Ticket {
         this.category = category;
     }
 
-    @Column(name="ticket_content")
     public String getContent() {
         return content;
     }
@@ -54,7 +61,6 @@ public class Ticket {
         this.content = content;
     }
 
-    @Column(name="ticket_status")
     public String getStatus() {
         return status;
     }
@@ -63,7 +69,6 @@ public class Ticket {
         this.status = status;
     }
 
-    @ManyToOne
     public Employee getEmp() {
         return employee;
     }

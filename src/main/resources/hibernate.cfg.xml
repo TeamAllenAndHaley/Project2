@@ -12,11 +12,19 @@
 
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
 
         <!--query cache is required to cache HQL queries-->
         <!--<property name="hibernate.cache.use_query_cache">true</property>-->
 
         <mapping class="com.allenhaley.model.Employee"/>
+        <mapping class="com.allenhaley.model.Announcement"/>
+        <mapping class="com.allenhaley.model.ApartmentComplex"/>
+        <mapping class="com.allenhaley.model.Event"/>
+        <mapping class="com.allenhaley.model.Housing"/>
+        <mapping class="com.allenhaley.model.Location"/>
+        <mapping class="com.allenhaley.model.SupplyRequest"/>
+        <mapping class="com.allenhaley.model.Ticket"/>
+
     </session-factory>
 </hibernate-configuration>

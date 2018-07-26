@@ -6,26 +6,52 @@ import javax.persistence.*;
 @Table(name = "supplyrequest", schema = "public")
 public class SupplyRequest {
 
+    @Id
+    @Column(name="req_id")
     private long reqId;
+
+    @Column(name="tp")
     private boolean tp;
+
+    @Column(name="paper_towels")
     private boolean paperTowels;
+
+    @Column(name="dish_soap")
     private boolean dishSoap;
+
+    @Column(name="dishwasher_soap")
     private boolean dishwasherSoap;
+
+    @Column(name="sponge")
     private boolean sponge;
+
+    @Column(name="garbage_bag")
     private boolean garbageBag;
+
+    @Column(name="hand_soap")
     private boolean handSoap;
+
+    @Column(name="pots_pans")
     private boolean potsPans;
+
+    @Column(name="cups")
     private boolean cups;
+
+    @Column(name="silverware")
     private boolean silverware;
+
+    @Column(name="flatware")
     private boolean flatware;
+
+    @Column(name="other")
     private String other;
+
+    @ManyToOne
     private Employee employee;
 
     public SupplyRequest() {
     }
 
-    @Id
-    @Column(name="req_id")
     public long getReqId() {
         return reqId;
     }
@@ -34,7 +60,6 @@ public class SupplyRequest {
         this.reqId = reqId;
     }
 
-    @Column(name="tp")
     public boolean isTp() {
         return tp;
     }
@@ -43,7 +68,6 @@ public class SupplyRequest {
         this.tp = tp;
     }
 
-    @Column(name="paper_towels")
     public boolean isPaperTowels() {
         return paperTowels;
     }
@@ -52,7 +76,6 @@ public class SupplyRequest {
         this.paperTowels = paperTowels;
     }
 
-    @Column(name="dish_soap")
     public boolean isDishSoap() {
         return dishSoap;
     }
@@ -61,7 +84,6 @@ public class SupplyRequest {
         this.dishSoap = dishSoap;
     }
 
-    @Column(name="dishwasher_soap")
     public boolean isDishwasherSoap() {
         return dishwasherSoap;
     }
@@ -70,7 +92,6 @@ public class SupplyRequest {
         this.dishwasherSoap = dishwasherSoap;
     }
 
-    @Column(name="sponge")
     public boolean isSponge() {
         return sponge;
     }
@@ -79,7 +100,6 @@ public class SupplyRequest {
         this.sponge = sponge;
     }
 
-    @Column(name="garbage_bag")
     public boolean isGarbageBag() {
         return garbageBag;
     }
@@ -88,7 +108,6 @@ public class SupplyRequest {
         this.garbageBag = garbageBag;
     }
 
-    @Column(name="hand_soap")
     public boolean isHandSoap() {
         return handSoap;
     }
@@ -97,7 +116,6 @@ public class SupplyRequest {
         this.handSoap = handSoap;
     }
 
-    @Column(name="pots_pans")
     public boolean isPotsPans() {
         return potsPans;
     }
@@ -106,7 +124,6 @@ public class SupplyRequest {
         this.potsPans = potsPans;
     }
 
-    @Column(name="cups")
     public boolean isCups() {
         return cups;
     }
@@ -115,7 +132,6 @@ public class SupplyRequest {
         this.cups = cups;
     }
 
-    @Column(name="silverware")
     public boolean isSilverware() {
         return silverware;
     }
@@ -124,7 +140,6 @@ public class SupplyRequest {
         this.silverware = silverware;
     }
 
-    @Column(name="flatware")
     public boolean isFlatware() {
         return flatware;
     }
@@ -133,7 +148,6 @@ public class SupplyRequest {
         this.flatware = flatware;
     }
 
-    @Column(name="other")
     public String getOther() {
         return other;
     }
@@ -142,7 +156,6 @@ public class SupplyRequest {
         this.other = other;
     }
 
-    @ManyToOne
     public Employee getEmployee() {
         return employee;
     }

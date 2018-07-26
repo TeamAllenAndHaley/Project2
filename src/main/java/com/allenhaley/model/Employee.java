@@ -8,29 +8,65 @@ import java.util.List;
 @Table(name = "employee", schema = "public")
 public class Employee {
 
+    @Id
+    @Column(name = "emp_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long empId;
+
+    @Column(name = "f_name", nullable = false)
     private String fName;
+
+    @Column(name = "l_name", nullable = false)
     private String lName;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "contact")
     private boolean canContact;
+
+    @Column(name = "dob")
     private Date dOfBirth;
+
+    @Column(name="department")
     private String department;
+
+    @Column(name="has_car")
     private boolean hasCar;
+
+    @Column(name="keys")
     private boolean hasKeys;
+
+    @Column(name="email_sub")
     private boolean isEmailSubbed;
+
+    @OneToOne
+    @JoinColumn(name="h_id")
     private Housing h;
+
+    @OneToOne
+    @JoinColumn(name="loc_id")
     private Location loc;
+
+    @OneToMany(mappedBy="employee")
+    @ElementCollection(targetClass=Ticket.class)
     private List<Ticket> tickets;
+
+    @OneToMany(mappedBy="employee")
+    @ElementCollection(targetClass=Event.class)
     private List<Event> events;
+
+    @OneToMany(mappedBy="employee")
+    @ElementCollection(targetClass=Announcement.class)
     private List<Announcement> announcements;
+
+    @OneToMany(mappedBy="employee")
+    @ElementCollection(targetClass=SupplyRequest.class)
     private List<SupplyRequest> supplyRequests;
 
     public Employee() {
     }
 
-    @Id
-    @Column(name = "emp_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getEmpId() {
         return empId;
     }
@@ -39,7 +75,6 @@ public class Employee {
         this.empId = empId;
     }
 
-    @Column(name = "f_name", nullable = false)
     public String getfName() {
         return fName;
     }
@@ -48,7 +83,6 @@ public class Employee {
         this.fName = fName;
     }
 
-    @Column(name = "l_name", nullable = false)
     public String getlName() {
         return lName;
     }
@@ -57,7 +91,6 @@ public class Employee {
         this.lName = lName;
     }
 
-    @Column(name = "email", nullable = false)
     public String getEmail() {
         return email;
     }
@@ -66,7 +99,6 @@ public class Employee {
         this.email = email;
     }
 
-    @Column(name = "contact")
     public boolean isCanContact() {
         return canContact;
     }
@@ -75,7 +107,6 @@ public class Employee {
         this.canContact = canContact;
     }
 
-    @Column(name = "dob")
     public Date getdOfBirth() {
         return dOfBirth;
     }
@@ -84,7 +115,6 @@ public class Employee {
         this.dOfBirth = dOfBirth;
     }
 
-    @Column(name="department")
     public String getDepartment() {
         return department;
     }
@@ -93,7 +123,6 @@ public class Employee {
         this.department = department;
     }
 
-    @Column(name="keys")
     public boolean isHasKeys() {
         return hasKeys;
     }
@@ -102,7 +131,6 @@ public class Employee {
         this.hasKeys = hasKeys;
     }
 
-    @Column(name="email_sub")
     public boolean isEmailSubbed() {
         return isEmailSubbed;
     }
@@ -111,7 +139,6 @@ public class Employee {
         isEmailSubbed = emailSubbed;
     }
 
-    @Column(name="has_car")
     public boolean isHasCar() {
         return hasCar;
     }
@@ -120,8 +147,6 @@ public class Employee {
         this.hasCar = hasCar;
     }
 
-    @OneToOne
-    @JoinColumn(name="h_id")
     public Housing getH() {
         return h;
     }
@@ -130,8 +155,6 @@ public class Employee {
         this.h = h;
     }
 
-    @OneToOne
-    @JoinColumn(name="loc_id")
     public Location getLoc() {
         return loc;
     }
@@ -140,8 +163,6 @@ public class Employee {
         this.loc = loc;
     }
 
-    @OneToMany(mappedBy="employee")
-    @ElementCollection(targetClass=Ticket.class)
     public List<Ticket> getTickets() {
         return tickets;
     }
@@ -150,8 +171,6 @@ public class Employee {
         this.tickets = tickets;
     }
 
-    @OneToMany(mappedBy="employee")
-    @ElementCollection(targetClass=Event.class)
     public List<Event> getEvents() {
         return events;
     }
@@ -160,8 +179,6 @@ public class Employee {
         this.events = events;
     }
 
-    @OneToMany(mappedBy="employee")
-    @ElementCollection(targetClass=Announcement.class)
     public List<Announcement> getAnnouncements() {
         return announcements;
     }
@@ -170,8 +187,6 @@ public class Employee {
         this.announcements = announcements;
     }
 
-    @OneToMany(mappedBy="employee")
-    @ElementCollection(targetClass=SupplyRequest.class)
     public List<SupplyRequest> getSupplyRequests() {
         return supplyRequests;
     }

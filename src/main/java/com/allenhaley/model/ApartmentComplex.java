@@ -11,7 +11,7 @@ public class ApartmentComplex {
 
     @Column(name="comp_id")
     @Id
-    private long compId;
+    private int compId;
 
     @Column(name="comp_name")
     private String complexName;
@@ -35,7 +35,7 @@ public class ApartmentComplex {
         return compId;
     }
 
-    public void setCompId(long compId) {
+    public void setCompId(int compId) {
         this.compId = compId;
     }
 

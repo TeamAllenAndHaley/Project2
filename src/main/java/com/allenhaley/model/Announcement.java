@@ -7,16 +7,23 @@ import java.util.Date;
 @Table(name = "announcement", schema = "public")
 public class Announcement {
 
+    @Id
+    @Column(name="a_id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long aId;
+
+    @Column(name="a_date")
     private Date aDate;
+
+    @Column(name="a_content")
     private String content;
+
+    @ManyToOne
     private Employee employee;
 
     public Announcement() {
     }
 
-    @Id
-    @Column(name="a_id")
     public long getaId() {
         return aId;
     }
@@ -25,7 +32,6 @@ public class Announcement {
         this.aId = aId;
     }
 
-    @Column(name="a_date")
     public Date getaDate() {
         return aDate;
     }
@@ -34,7 +40,6 @@ public class Announcement {
         this.aDate = aDate;
     }
 
-    @Column(name="a_content")
     public String getContent() {
         return content;
     }
@@ -43,7 +48,6 @@ public class Announcement {
         this.content = content;
     }
 
-    @ManyToOne
     public Employee getEmployee() {
         return employee;
     }

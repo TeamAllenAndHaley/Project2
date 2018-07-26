@@ -7,18 +7,28 @@ import java.util.Date;
 @Table(name = "event", schema = "public")
 public class Event {
 
+    @Id
+    @Column(name="evt_id")
     private long evtId;
+
+    @Column(name="evt_date")
     private Date evtDate;
+
+    @Column(name="evt_location")
     private String evtLocation;
+
+    @Column(name="evt_time")
     private String evtTime;
+
+    @Column(name="evt_desc")
     private String evtDesc;
+
+    @ManyToOne
     private Employee employee;
 
     public Event() {
     }
 
-    @Id
-    @Column(name="evt_id")
     public long getEvtId() {
         return evtId;
     }
@@ -27,7 +37,6 @@ public class Event {
         this.evtId = evtId;
     }
 
-    @Column(name="evt_date")
     public Date getEvtDate() {
         return evtDate;
     }
@@ -36,7 +45,6 @@ public class Event {
         this.evtDate = evtDate;
     }
 
-    @Column(name="evt_location")
     public String getEvtLocation() {
         return evtLocation;
     }
@@ -45,7 +53,6 @@ public class Event {
         this.evtLocation = evtLocation;
     }
 
-    @Column(name="evt_time")
     public String getEvtTime() {
         return evtTime;
     }
@@ -54,7 +61,6 @@ public class Event {
         this.evtTime = evtTime;
     }
 
-    @Column(name="evt_desc")
     public String getEvtDesc() {
         return evtDesc;
     }
@@ -63,7 +69,6 @@ public class Event {
         this.evtDesc = evtDesc;
     }
 
-    @ManyToOne
     public Employee getEmployee() {
         return employee;
     }

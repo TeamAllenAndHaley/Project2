@@ -1,9 +1,6 @@
 package com.allenhaley.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "location", schema = "public")
@@ -13,8 +10,11 @@ public class Location {
     @Id
     private long locId;
 
-    @Column(name="location")
+    @Column(name="program_location")
     private String location;
+
+    @Column(name="classroom")
+    private String classLoc;
 
     public Location() {
     }
@@ -35,11 +35,20 @@ public class Location {
         this.location = location;
     }
 
+    public String getClassLoc() {
+        return classLoc;
+    }
+
+    public void setClassLoc(String classLoc) {
+        this.classLoc = classLoc;
+    }
+
     @Override
     public String toString() {
         return "Location{" +
                 "locId=" + locId +
                 ", location='" + location + '\'' +
+                ", classLoc='" + classLoc + '\'' +
                 '}';
     }
 }

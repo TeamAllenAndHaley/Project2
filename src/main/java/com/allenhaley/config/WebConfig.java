@@ -1,4 +1,4 @@
-package com.allenhaley;
+package com.allenhaley.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -20,7 +22,17 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("com")
 @EnableWebMvc //enables webmvc annotations, @Controller, @RestController, @RequestMapping, etc
-public class WebConfig {
+public class WebConfig extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+//        registry.addViewController("/").setViewName("forward:/index.html");
+        registry.addViewController("/**")
+                .setViewName("/");
+//        registry.addViewController("/login")
+//                .setViewName("redirect:/");
+    }
+
     private Environment env;
 
     @Autowired

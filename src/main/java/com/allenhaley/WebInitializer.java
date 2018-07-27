@@ -8,7 +8,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
+import javax.servlet.ServletRegistration.Dynamic;
 
 public class WebInitializer implements WebApplicationInitializer {
     @Override
@@ -18,16 +18,14 @@ public class WebInitializer implements WebApplicationInitializer {
         servletContext.addListener(new ContextLoaderListener(context));
 
         //next three lines take place of xml servlet and servlet mapping
-        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcherServlet", new DispatcherServlet(context));
-
-        //<load-on-startup>
-        dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/*");
+        Dynamic dispatcher = servletContext.addServlet("dispatcherServlet", new DispatcherServlet(context));
+        dispatcher.setLoadOnStartup(1);  //<load-on-startup>
+        dispatcher.addMapping("/api/*");
     }
 
     private AnnotationConfigWebApplicationContext getContext() {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.setConfigLocation("com.allenhaley.WebConfig");
+        context.setConfigLocation("com.allenhaley.config.WebConfig");
         return context;
     }
 }

@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ForwardingController {
 
-    @GetMapping("/what")
+//    @GetMapping("/**/{[path:[^\\.]*}")
+//    public String forward() {
+//        return "forward:/";
+//    }
+
+    @GetMapping("/api/*")
     @ResponseBody
     public String testMethod() {
         System.out.println("Hello base.");

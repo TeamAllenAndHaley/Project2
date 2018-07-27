@@ -4,19 +4,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from './service/auth-guard.service';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AssociateComponent } from './home/associate/associate.component';
-import { HrRepComponent } from './home/hr-rep/hr-rep.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { SubmitComponent } from './home/submit/submit.component';
 
 const routes: Routes = [{
     path: '',
     component: HomeComponent,
-    canActivate: [ AuthGuardService ],
+    // canActivate: [ AuthGuardService ],
     children: [{
-      path: 'associate',
-      component: AssociateComponent
+      path: '',
+      component: DashboardComponent
     }, {
-      path: 'hr',
-      component: HrRepComponent
+      path: 'submit',
+      component: SubmitComponent
     }]
   }, {
     path: 'login',

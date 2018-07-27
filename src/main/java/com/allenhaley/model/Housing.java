@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "housing", schema = "public")
 public class Housing {
 
-    @Column(name="h_id")
+    @Column(name="housing_id")
     @Id
     private long housingId;
 

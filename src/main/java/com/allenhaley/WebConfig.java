@@ -39,6 +39,10 @@ public class WebConfig {
         return dataSource;
     }
 
+    /**
+     * The two methods below use Spring ORM, which we may or may not be allowed to use for project two.
+     */
+
     @Bean
     public LocalSessionFactoryBean getSessionFactory(){
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();

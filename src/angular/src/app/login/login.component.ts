@@ -8,8 +8,9 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email: FormControl = new FormControl('', [Validators.required, Validators.email]);
-  password: FormControl = new FormControl('', [Validators.required]);
+  formData: any = {};
+  emailControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
+  passwordControl: FormControl = new FormControl('', [Validators.required]);
 
   constructor(private authService: AuthService) { }
 
@@ -17,12 +18,12 @@ export class LoginComponent implements OnInit {
   }
 
   getEmailError(): String {
-    return this.email.hasError('required') ? 'email is required to login' :
-        this.email.hasError('email') ? 'entered email is invalid' : '';
+    return this.emailControl.hasError('required') ? 'email is required to login' :
+        this.emailControl.hasError('email') ? 'entered email is invalid' : '';
   }
 
-  signIn(): void {
-    console.log('signin runs!');
+  onSubmit(): void {
+    this.authService.login(this.formData.email, this.formData.password);
   }
 
 }

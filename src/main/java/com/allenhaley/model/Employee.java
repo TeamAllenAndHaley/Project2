@@ -41,11 +41,11 @@ public class Employee {
     private boolean isEmailSubbed;
 
     @OneToOne
-    @JoinColumn(name="h_id")
+    @JoinColumn(name="housing_id")
     private Housing h;
 
     @OneToOne
-    @JoinColumn(name="loc_id")
+    @JoinColumn(name="location_id")
     private Location loc;
 
     @OneToMany(mappedBy="employee")

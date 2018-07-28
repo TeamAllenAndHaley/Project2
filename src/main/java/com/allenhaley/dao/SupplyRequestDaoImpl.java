@@ -1,19 +1,15 @@
 package com.allenhaley.dao;
 
-import com.allenhaley.config.HibernateConfigUtil;
-import com.allenhaley.model.Employee;
+import com.allenhaley.model.SupplyRequest;
 import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-@Repository
-public class EmployeeDaoImpl implements EmployeeDao {
+public class SupplyRequestDaoImpl implements SupplyRequestDao {
     private SessionFactory sessionFactory;
 
     @Autowired
@@ -22,33 +18,33 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public void add(Employee obj) {
+    public void add(SupplyRequest obj) {
         sessionFactory.getCurrentSession().save(obj);
     }
 
     @Override
-    public Collection<Employee> all() {
-        String hql = "From Employee";
+    public Collection<SupplyRequest> all() {
+        String hql = "From Supplyrequest";
         Query q = sessionFactory.getCurrentSession().createQuery(hql);
         return q.list();
     }
 
     @Override
-    public Employee find(Serializable id) {
-       String hql = "From Employee e Where e.empId= :id";
-       Query q = sessionFactory.getCurrentSession().createQuery(hql);
-       List<Employee> employees = q.list();
-
-       return employees.isEmpty() ? null : employees.get(0);
+    public SupplyRequest find(Serializable id) {
+        String hql = "From Supplyrequest sr Where sr.reqId= :id";
+        Query q = sessionFactory.getCurrentSession().createQuery(hql);
+        q.setParameter("id",id);
+        List<SupplyRequest> requests = q.list();
+        return requests.isEmpty() ? null : requests.get(0);
     }
 
     @Override
-    public void delete(Employee obj) {
+    public void delete(SupplyRequest obj) {
         sessionFactory.getCurrentSession().delete(obj);
     }
 
     @Override
-    public void update(Employee obj) {
+    public void update(SupplyRequest obj) {
         sessionFactory.getCurrentSession().saveOrUpdate(obj);
     }
 }

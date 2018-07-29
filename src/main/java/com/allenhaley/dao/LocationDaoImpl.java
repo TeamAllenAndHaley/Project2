@@ -13,6 +13,7 @@ import java.util.List;
 
 @Repository
 public class LocationDaoImpl implements LocationDao {
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Autowired
@@ -32,7 +33,12 @@ public class LocationDaoImpl implements LocationDao {
 
     @Override
     public Location find(Serializable id) {
-        return null;
+        String hql = "From Location l Where l.locId= :id";
+        Query q = sessionFactory.getCurrentSession().createQuery(hql);
+        q.setParameter("id", id);
+        List<Location> locations = q.list();
+
+        return locations.isEmpty() ? null : locations.get(0);
     }
 
     @Override

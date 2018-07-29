@@ -9,7 +9,11 @@ export class AuthService {
 
   public login(id: string, pw: string) {
     console.log(id + ' ' + pw);
-    return this.httpClient.post(`http://localhost:8100/api/login/auth`, {"email":id, "password":pw});
+    let url = 'http://localhost:8100/api/login/auth';
+    return this.httpClient.post(url, {"email":id, "password":pw}).subscribe(
+      res => console.log("test")
+    );
+    // return this.httpClient.get(url).subscribe(res => console.log("test"));
   }
 
   logout() {}

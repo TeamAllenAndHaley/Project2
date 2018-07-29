@@ -1,6 +1,5 @@
 package com.allenhaley.dao;
 
-import com.allenhaley.config.HibernateConfigUtil;
 import com.allenhaley.model.Employee;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -37,6 +36,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public Employee find(Serializable id) {
        String hql = "From Employee e Where e.empId= :id";
        Query q = sessionFactory.getCurrentSession().createQuery(hql);
+       q.setParameter("id",id);
        List<Employee> employees = q.list();
 
        return employees.isEmpty() ? null : employees.get(0);
@@ -56,6 +56,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public Employee findByEmail(String email) {
         String hql = "From Employee e Where e.email= :email";
         Query q = sessionFactory.getCurrentSession().createQuery(hql);
+        q.setParameter("email",email);
         List<Employee> employees = q.list();
 
         return employees.isEmpty() ? null : employees.get(0);

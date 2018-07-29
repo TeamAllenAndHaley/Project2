@@ -23,18 +23,20 @@ public class LoginController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping(path="test")
-    public void testMappings() {
-        System.out.println("test worked");
+    @GetMapping(path="/test",produces=MediaType.APPLICATION_JSON_VALUE)
+    public void testMappings(HttpServletResponse response) {
+        System.out.println("test");
+//        response.setStatus(200);
+//        return response;
     }
 
-    @PostMapping(path="auth",produces={MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, consumes="application/json")
+    @CrossOrigin
+    @PostMapping(path="/auth",produces={MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, consumes="application/json")
     public ResponseEntity<Employee> findUser(@RequestBody Login login, HttpServletResponse response) {
         System.out.println("test");
         Employee employee = employeeService.findEmployee(login.getEmail());
         if(employee.getPassword().equals(login.getPassword())) {
-            response.setHeader("Location","http://localhost:4200");
-            return new ResponseEntity<>(employee,HttpStatus.OK);
+            return new ResponseEntity<>(employee, HttpStatus.OK);
         }
         return new ResponseEntity<>((Employee)null,HttpStatus.BAD_REQUEST);
     }

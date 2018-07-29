@@ -1,3 +1,18 @@
-<p>
-  new works!
-</p>
+<form #ngLogin="ngForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Login ID</mat-label>
+
+    <input matInput required
+      class="input"
+      name="email"
+      [(ngModel)]="formData.email"
+      placeholder="user@email.com"
+      [formControl]="emailControl"
+    >
+
+    <mat-error *ngIf="emailControl.invalid">{{ getEmailError() }}</mat-error>
+  </mat-form-field>
+
+  <button type="submit" mat-button>register</button>
+</form>
+  

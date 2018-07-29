@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from 'node_modules/@angular/forms';
-import { AuthService } from 'src/app/service/auth.service';
+import { Router } from 'node_modules/@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,28 +7,25 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formData: any = {};
-  emailControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordControl: FormControl = new FormControl({ disabled: true }, [Validators.required]);
-  firstLogin: boolean = false;
 
-  constructor(private authService: AuthService) { }
+  firstLogin: boolean;
+  toggleText: string = 'new user?';
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  getEmailError(): String {
-    return this.emailControl.hasError('required') ? 'email is required to login' :
-        this.emailControl.hasError('email') ? 'entered email is invalid' : '';
-  }
-
-  onSubmit(): void {
-    this.authService.login(this.formData.email, this.formData.password);
-  }
-
   onToggleFirstLogin(): void {
     this.firstLogin = !this.firstLogin;
-    console.log(this.firstLogin);
+    
+    if (this.firstLogin) {
+      this.router.navigate(['/login/new']);
+      this.toggleText = 'returning user?';
+    } else {
+      this.router.navigate(['/login']);
+      this.toggleText = 'new user?';
+    }
   }
 
 }

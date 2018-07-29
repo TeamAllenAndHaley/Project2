@@ -11,5 +11,13 @@ export class AuthService {
     console.log(id + ' ' + pw);
   }
 
+  isNewUser(id: string): boolean {
+    // get account by email
+    // if exists, get password
+    //    if password is empty/null, return true
+    // else return false
+    return true;
+  }
+
   logout() {}
 }

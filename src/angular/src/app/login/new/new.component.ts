@@ -12,7 +12,7 @@ export class NewComponent implements OnInit {
 
   formData: any = {};
   emailControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
-
+  newUser: boolean;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -25,10 +25,7 @@ export class NewComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.authService.isNewUser(this.formData.email)) {
-      // switch to password/confirm password form
-
-    }
+    this.newUser = this.authService.isNewUser(this.formData.email);
   }
 
   onPasswordSubmit(): void {

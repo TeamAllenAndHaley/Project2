@@ -1,4 +1,5 @@
-<form #ngLogin="ngForm" (ngSubmit)="onSubmit()">
+<!-- <form #ngLogin="ngForm" (ngSubmit)="onSubmit()"> -->
+<form #ngLogin="ngForm">
   <mat-form-field>
     <mat-label>Login ID</mat-label>
 
@@ -13,6 +14,27 @@
     <mat-error *ngIf="emailControl.invalid">{{ getEmailError() }}</mat-error>
   </mat-form-field>
 
-  <button type="submit" mat-button>register</button>
+  <mat-form-field *ngIf="newUser">
+    <mat-label>new password</mat-label>
+    <input matInput required
+      class="input"
+      name="password"
+      [(ngModel)]="formData.password"
+      placeholder="password"
+    >
+  </mat-form-field>
+
+  <mat-form-field *ngIf="newUser">
+    <mat-label>confirm password</mat-label>
+    <input matInput required
+      class="input"
+      name="password"
+      [(ngModel)]="formData.confirmPassword"
+      placeholder="password"
+    >
+  </mat-form-field>
+
+  <button type="submit" (submit)="onSubmit()" mat-button *ngIf="!newUser">register</button>
+  <button type="submit" (submit)="onPasswordSubmit()" mat-button *ngIf="newUser">register</button>
 </form>
   

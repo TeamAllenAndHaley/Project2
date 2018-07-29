@@ -7,8 +7,9 @@ import { HttpClient } from 'node_modules/@angular/common/http';
 export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
-  login(id: string, pw: string) {
+  public login(id: string, pw: string) {
     console.log(id + ' ' + pw);
+    return this.httpClient.post(`http://localhost:8100/api/login/auth`, {"email":id, "password":pw});
   }
 
   logout() {}

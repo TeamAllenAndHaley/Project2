@@ -1,6 +1,5 @@
 package com.allenhaley.dao;
 
-import com.allenhaley.config.HibernateConfigUtil;
 import com.allenhaley.model.Housing;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -22,16 +21,7 @@ public class HousingDaoImpl implements HousingDao {
 
     @Override
     public Housing find(Serializable id) {
-        Session s = HibernateConfigUtil.getSessionFactory().openSession();
-        s.beginTransaction();
-
-        String hql = "From Housing h Where h.housingId= :id";
-        Query q = s.createQuery(hql);
-        q.setParameter("id",id);
-        List<Housing> housing = q.list();
-        s.getTransaction().commit();
-        s.close();
-        return housing.isEmpty() ? null : housing.get(0);
+        return null;
     }
 
     @Override

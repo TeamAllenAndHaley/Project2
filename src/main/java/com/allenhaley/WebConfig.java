@@ -1,4 +1,4 @@
-package com.allenhaley.config;
+package com.allenhaley;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;

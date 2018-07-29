@@ -1,6 +1,8 @@
 package com.allenhaley.services;
 
 import com.allenhaley.dao.BaseDao;
+import com.allenhaley.dao.EmployeeDao;
+import com.allenhaley.dao.EmployeeDaoImpl;
 import com.allenhaley.model.Employee;
 import com.allenhaley.model.Housing;
 import org.springframework.stereotype.Service;
@@ -11,7 +13,7 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
-    BaseDao<Employee> employeeDao;
+    private EmployeeDao employeeDao = new EmployeeDaoImpl();
 
     @Transactional
     public void saveEmployee(Employee e) {
@@ -31,5 +33,9 @@ public class EmployeeService {
     @Transactional
     public void deleteEmployee(Employee e) {
         employeeDao.delete(e);
+    }
+
+    public Employee findEmployee(String email) {
+        return employeeDao.findByEmail(email);
     }
 }

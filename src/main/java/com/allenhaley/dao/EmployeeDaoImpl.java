@@ -51,4 +51,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public void update(Employee obj) {
         sessionFactory.getCurrentSession().saveOrUpdate(obj);
     }
+
+    @Override
+    public Employee findByEmail(String email) {
+        String hql = "From Employee e Where e.email= :email";
+        Query q = sessionFactory.getCurrentSession().createQuery(hql);
+        List<Employee> employees = q.list();
+
+        return employees.isEmpty() ? null : employees.get(0);
+    }
 }

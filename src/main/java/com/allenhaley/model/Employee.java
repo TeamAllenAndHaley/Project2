@@ -22,6 +22,9 @@ public class Employee {
     @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name="password", nullable = false)
+    private String password;
+
     @Column(name = "contact")
     private boolean canContact;
 
@@ -97,6 +100,14 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isCanContact() {

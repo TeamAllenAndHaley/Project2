@@ -9,7 +9,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
  login(id: string, pw: string) {
-    let url = 'http://localhost:8100/api/login/auth';
+    let url = '/api/login/auth';
 
     return this.httpClient.post(url, {
       email: id,

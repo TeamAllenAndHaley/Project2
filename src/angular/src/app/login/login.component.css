@@ -27,3 +27,7 @@ h1, caption {
     height: 85vh;
     z-index: -1;
 }
+
+form {
+    margin: 20px 5vw 0;
+}

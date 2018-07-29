@@ -16,6 +16,8 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { SubmitComponent } from './home/submit/submit.component';
 import { RequestComponent } from './home/submit/request/request.component';
 import { TicketComponent } from './home/submit/ticket/ticket.component';
+import { DefaultComponent } from './login/default/default.component';
+import { NewComponent } from './login/new/new.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TicketComponent } from './home/submit/ticket/ticket.component';
     DashboardComponent,
     SubmitComponent,
     RequestComponent,
-    TicketComponent
+    TicketComponent,
+    DefaultComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,

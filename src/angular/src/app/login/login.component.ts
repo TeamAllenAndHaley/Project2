@@ -10,7 +10,8 @@ import { AuthService } from 'src/app/service/auth.service';
 export class LoginComponent implements OnInit {
   formData: any = {};
   emailControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordControl: FormControl = new FormControl('', [Validators.required]);
+  passwordControl: FormControl = new FormControl({ disabled: true }, [Validators.required]);
+  firstLogin: boolean = false;
 
   constructor(private authService: AuthService) { }
 
@@ -24,6 +25,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.authService.login(this.formData.email, this.formData.password);
+  }
+
+  onToggleFirstLogin(): void {
+    this.firstLogin = !this.firstLogin;
+    console.log(this.firstLogin);
   }
 
 }

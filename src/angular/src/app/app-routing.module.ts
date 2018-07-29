@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { SubmitComponent } from './home/submit/submit.component';
+import { DefaultComponent } from './login/default/default.component';
+import { NewComponent } from './login/new/new.component';
 
 const routes: Routes = [{
     path: '',
@@ -20,7 +22,14 @@ const routes: Routes = [{
     }]
   }, {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    children: [{
+      path: '',
+      component: DefaultComponent
+    }, {
+      path: 'new',
+      component: NewComponent
+    }]
   }];
 
 @NgModule({

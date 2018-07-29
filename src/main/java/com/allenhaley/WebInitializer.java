@@ -20,7 +20,7 @@ public class WebInitializer implements WebApplicationInitializer {
         //next three lines take place of xml servlet and servlet mapping
         Dynamic dispatcher = servletContext.addServlet("dispatcherServlet", new DispatcherServlet(context));
         dispatcher.setLoadOnStartup(1);  //<load-on-startup>
-        dispatcher.addMapping("/api/*");
+        dispatcher.addMapping("/api/*", "/submit/*", "/login/*");
     }
 
     private AnnotationConfigWebApplicationContext getContext() {

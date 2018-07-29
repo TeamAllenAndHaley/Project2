@@ -21,9 +21,14 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScan("com")
+@ComponentScan(basePackages = "com.allenhaley") //value = "com",
 @EnableWebMvc //enables webmvc annotations, @Controller, @RestController, @RequestMapping, etc
 public class WebConfig extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
 
     @Autowired
     private Environment env;
@@ -62,17 +67,4 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return txManager;
     }
 
-    @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-//        viewResolver.setPrefix("");
-        viewResolver.setSuffix(".html");
-        return viewResolver;
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**").addResourceLocations("/");
-    }
 }

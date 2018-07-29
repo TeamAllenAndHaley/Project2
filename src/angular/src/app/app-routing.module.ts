@@ -8,6 +8,8 @@ import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { SubmitComponent } from './home/submit/submit.component';
 import { DefaultComponent } from './login/default/default.component';
 import { NewComponent } from './login/new/new.component';
+import { RequestComponent } from './home/submit/request/request.component';
+import { TicketComponent } from './home/submit/ticket/ticket.component';
 
 const routes: Routes = [{
     path: '',
@@ -18,7 +20,14 @@ const routes: Routes = [{
       component: DashboardComponent
     }, {
       path: 'submit',
-      component: SubmitComponent
+      component: SubmitComponent,
+      children: [{
+        path: 'request',
+        component: RequestComponent
+      }, {
+        path: 'ticket',
+        component: TicketComponent
+      }]
     }]
   }, {
     path: 'login',

@@ -53,4 +53,12 @@ public class LoginController {
         } else return new ResponseEntity<>((Login)null,HttpStatus.BAD_REQUEST);
     }
 
+    @CrossOrigin
+    @PostMapping(path="/register",produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_ATOM_XML_VALUE}, consumes="application/json")
+    public ResponseEntity<Employee> addNewPassword(@RequestBody Login login) {
+        Employee employee = employeeService.findEmployee(login.getEmail());
+        employee.setPassword(login.getPassword());
+        employeeService.updateEmployee(employee);
+        return new ResponseEntity<>(employee, HttpStatus.OK);
+    }
 }

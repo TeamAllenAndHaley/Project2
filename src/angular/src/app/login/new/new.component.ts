@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
+import { Router } from 'node_modules/@angular/router';
 import { FormControl, Validators } from 'node_modules/@angular/forms';
 
 @Component({
@@ -12,7 +13,8 @@ export class NewComponent implements OnInit {
   formData: any = {};
   emailControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private authService: AuthService) { }
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +29,12 @@ export class NewComponent implements OnInit {
       // switch to password/confirm password form
 
     }
+  }
+
+  onPasswordSubmit(): void {
+    //send password to backend with email, so that user can be looked up and password updated
+    this.authService.addPassword(this.formData.email, this.formData.password);
+    this.router.navigate(['/']);
   }
 
 }

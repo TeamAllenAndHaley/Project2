@@ -15,8 +15,9 @@ export class AuthService {
       email: id,
       password: pw
     }).subscribe(
-      res => console.log(res)
-    );
+      res => {
+        localStorage.setItem('userLoggedIn', JSON.stringify(res));
+      });
   }
 
   private newUser: boolean;
@@ -25,7 +26,7 @@ export class AuthService {
     // if exists && password is empty/null
     //    return true
     // else return false
-    let url = 'http://localhost:8100/api/login/new';
+    let url = '/api/login/new';
     this.httpClient.post<Login>(url, {
       email: id,
       password: null
@@ -45,6 +46,17 @@ export class AuthService {
   }
 
   logout() {}
+
+  addPassword(email: string, password: string) {
+    //send email and password in request, update password for employee with that email
+    let url = '/api/login/register';
+    return this.httpClient.post(url, {
+      email: email,
+      password: password
+    }).subscribe(res => {
+      localStorage.setItem('userLoggedIn', JSON.stringify(res));
+    });
+  }
 }
 
 class Login {

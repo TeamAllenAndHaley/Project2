@@ -10,9 +10,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -24,21 +25,8 @@ import java.util.Properties;
 @EnableWebMvc //enables webmvc annotations, @Controller, @RestController, @RequestMapping, etc
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/").setViewName("forward:/index.html");
-        registry.addViewController("/**")
-                .setViewName("/");
-//        registry.addViewController("/login")
-//                .setViewName("redirect:/");
-    }
-
-    private Environment env;
-
     @Autowired
-    public void setEnv(Environment env) {
-        this.env = env;
-    }
+    private Environment env;
 
     @Bean
     public DataSource getDataSource(){
@@ -50,10 +38,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
         return dataSource;
     }
-
-    /**
-     * The two methods below use Spring ORM, which we may or may not be allowed to use for project two.
-     */
 
     @Bean
     public LocalSessionFactoryBean getSessionFactory(){
@@ -76,5 +60,19 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(getSessionFactory().getObject());
         return txManager;
+    }
+
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
+//        viewResolver.setPrefix("");
+        viewResolver.setSuffix(".html");
+        return viewResolver;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("/");
     }
 }

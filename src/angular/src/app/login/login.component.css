@@ -1,0 +1,29 @@
+:host, #hero, form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h1, caption {
+    color: white;
+}
+
+#hero {
+    width: 100%;
+    height: 85vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.7);
+}
+
+#hero:after {
+    position: absolute;
+    content: "";
+    background-image: url('https://picsum.photos/1920/1080?random');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 85vh;
+    z-index: -1;
+}

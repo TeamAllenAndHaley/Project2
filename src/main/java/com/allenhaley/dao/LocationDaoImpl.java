@@ -22,8 +22,8 @@ public class LocationDaoImpl implements LocationDao {
     }
 
     @Override
-    public Location add(Location obj) {
-        return obj;
+    public void add(Location obj) {
+
     }
 
     @Override
@@ -46,12 +46,18 @@ public class LocationDaoImpl implements LocationDao {
     }
 
     @Override
-    public int delete(Location obj) {
-        return 0;
+    public void delete(Location obj) {
+        Session s = HibernateConfigUtil.getSessionFactory().openSession();
+        s.beginTransaction();
+
+        s.delete(obj);
+
+        s.getTransaction().commit();
+        s.close();
     }
 
     @Override
-    public int update(Location obj) {
-        return 0;
+    public void update(Location obj) {
+
     }
 }

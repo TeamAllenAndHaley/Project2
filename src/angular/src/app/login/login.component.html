@@ -1,3 +1,38 @@
-<p>
-  login works!
-</p>
+<div id="hero" class="mat-typography">
+  <h1 class="mat-display-2">Resource Portal <span class="mat-caption">for Humans</span></h1>
+
+  <mat-card>
+    <form #ngLogin="ngForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Login ID</mat-label>
+
+        <input matInput required
+          class="input"
+          name="email"
+          [(ngModel)]="formData.email"
+          placeholder="user@email.com"
+          [formControl]="emailControl"
+        >
+
+        <mat-error *ngIf="emailControl.invalid">{{ getEmailError() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+
+        <input matInput required
+          class="input" 
+          name="password"
+          [(ngModel)]="formData.password"
+          placeholder="password"
+          [formControl]="passwordControl"
+          type="password"
+        >
+
+        <mat-error *ngIf="passwordControl.invalid">password is required to login</mat-error>
+      </mat-form-field>
+
+      <button type="submit" mat-button>sign in</button>
+    </form>
+  </mat-card>
+</div>

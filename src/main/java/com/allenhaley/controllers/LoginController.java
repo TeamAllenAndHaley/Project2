@@ -32,13 +32,25 @@ public class LoginController {
 
     @CrossOrigin
     @PostMapping(path="/auth",produces={MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, consumes="application/json")
-    public ResponseEntity<Employee> findUser(@RequestBody Login login, HttpServletResponse response) {
-        System.out.println("test");
+    public ResponseEntity<Employee> findUser(@RequestBody Login login) {
         Employee employee = employeeService.findEmployee(login.getEmail());
         if(employee.getPassword().equals(login.getPassword())) {
             return new ResponseEntity<>(employee, HttpStatus.OK);
         }
         return new ResponseEntity<>((Employee)null,HttpStatus.BAD_REQUEST);
+    }
+
+    @CrossOrigin
+    @PostMapping(path="/new",produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_ATOM_XML_VALUE}, consumes="application/json")
+    public ResponseEntity<Login> isNewUser(@RequestBody Login login) {
+        Employee employee = employeeService.findEmployee(login.getEmail());
+        if(employee.getPassword() == null) {
+            employee.setPassword("test");
+            Login l = new Login();
+            l.setEmail(employee.getEmail());
+            l.setPassword(employee.getPassword());
+            return new ResponseEntity<>(login, HttpStatus.OK);
+        } else return new ResponseEntity<>((Login)null,HttpStatus.BAD_REQUEST);
     }
 
 }

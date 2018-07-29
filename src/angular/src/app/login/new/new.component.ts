@@ -25,6 +25,7 @@ export class NewComponent implements OnInit {
   onSubmit(): void {
     if (this.authService.isNewUser(this.formData.email)) {
       // switch to password/confirm password form
+
     }
   }
 

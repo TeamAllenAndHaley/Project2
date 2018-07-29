@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { FormControl, Validators } from 'node_modules/@angular/forms';
+import { Router } from 'node_modules/@angular/router';
 
 @Component({
   selector: 'app-default',
@@ -12,7 +13,7 @@ export class DefaultComponent implements OnInit {
   emailControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordControl: FormControl = new FormControl({ disabled: true }, [Validators.required]);
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,7 @@ export class DefaultComponent implements OnInit {
 
   onSubmit(): void {
     this.authService.login(this.formData.email, this.formData.password);
+    this.router.navigate(['/']);
   }
 
 }

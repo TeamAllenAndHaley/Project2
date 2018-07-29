@@ -14,10 +14,10 @@ export class AuthService {
     return this.httpClient.post(url, {
       email: id,
       password: pw
-    }).subscribe(
-      res => {
-        localStorage.setItem('userLoggedIn', JSON.stringify(res));
-      });
+    }).subscribe(res => {
+      localStorage.setItem('userLoggedIn', JSON.stringify(res));
+      console.log(JSON.parse(localStorage.getItem('userLoggedIn')));
+    });
   }
 
   private newUser: boolean;
@@ -45,8 +45,6 @@ export class AuthService {
     // set password for user
   }
 
-  logout() {}
-
   addPassword(email: string, password: string) {
     //send email and password in request, update password for employee with that email
     let url = '/api/login/register';
@@ -56,6 +54,10 @@ export class AuthService {
     }).subscribe(res => {
       localStorage.setItem('userLoggedIn', JSON.stringify(res));
     });
+  }
+    
+  logout() {
+    localStorage.removeItem('userLoggedIn');
   }
 }
 

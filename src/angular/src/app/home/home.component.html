@@ -1,4 +1,8 @@
-<p>
-  home works! <a routerLink="/">home</a>    <a routerLink="/submit">submit</a>   <a routerLink="/login">login</a>
-  <router-outlet></router-outlet>
-</p>
+<mat-menu>
+  <button routerLink="/" mat-menu-item>home</button>
+  <button routerLink="/submit" mat-menu-item>submit</button>
+  <button routerLink="/login" mat-menu-item>login</button>
+  <button (click)="onLogout()" mat-menu-item>logout</button>
+</mat-menu>
+home works!
+<router-outlet></router-outlet>

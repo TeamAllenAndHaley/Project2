@@ -14,7 +14,7 @@ import { TicketComponent } from './home/submit/ticket/ticket.component';
 const routes: Routes = [{
     path: '',
     component: HomeComponent,
-    // canActivate: [ AuthGuardService ],
+    canActivate: [ AuthGuardService ],
     children: [{
       path: '',
       component: DashboardComponent

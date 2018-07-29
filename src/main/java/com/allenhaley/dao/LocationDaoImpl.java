@@ -1,6 +1,5 @@
 package com.allenhaley.dao;
 
-import com.allenhaley.config.HibernateConfigUtil;
 import com.allenhaley.model.Location;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -14,6 +13,7 @@ import java.util.List;
 
 @Repository
 public class LocationDaoImpl implements LocationDao {
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Autowired
@@ -33,27 +33,17 @@ public class LocationDaoImpl implements LocationDao {
 
     @Override
     public Location find(Serializable id) {
-        Session s = HibernateConfigUtil.getSessionFactory().openSession();
-        s.beginTransaction();
-
         String hql = "From Location l Where l.locId= :id";
-        Query q = s.createQuery(hql);
-        q.setParameter("id",id);
+        Query q = sessionFactory.getCurrentSession().createQuery(hql);
+        q.setParameter("id", id);
         List<Location> locations = q.list();
-        s.getTransaction().commit();
-        s.close();
+
         return locations.isEmpty() ? null : locations.get(0);
     }
 
     @Override
     public void delete(Location obj) {
-        Session s = HibernateConfigUtil.getSessionFactory().openSession();
-        s.beginTransaction();
 
-        s.delete(obj);
-
-        s.getTransaction().commit();
-        s.close();
     }
 
     @Override

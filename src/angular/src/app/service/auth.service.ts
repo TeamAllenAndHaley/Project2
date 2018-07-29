@@ -7,8 +7,13 @@ import { HttpClient } from 'node_modules/@angular/common/http';
 export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
-  login(id: string, pw: string) {
+  public login(id: string, pw: string) {
     console.log(id + ' ' + pw);
+    let url = 'http://localhost:8100/api/login/auth';
+    return this.httpClient.post(url, {"email":id, "password":pw}).subscribe(
+      res => console.log(res)
+    );
+    // return this.httpClient.get(url).subscribe(res => console.log("test"));
   }
 
   isNewUser(id: string): boolean {

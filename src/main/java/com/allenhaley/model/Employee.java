@@ -22,6 +22,9 @@ public class Employee {
     @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name="password", nullable = false)
+    private String password;
+
     @Column(name = "contact")
     private boolean canContact;
 
@@ -48,21 +51,21 @@ public class Employee {
     @JoinColumn(name="location_id")
     private Location loc;
 
-    @OneToMany(mappedBy="employee")
-    @ElementCollection(targetClass=Ticket.class)
-    private List<Ticket> tickets;
+//    @OneToMany(mappedBy="employee")
+//    @ElementCollection(targetClass=Ticket.class)
+//    private List<Ticket> tickets;
 
-    @OneToMany(mappedBy="employee")
-    @ElementCollection(targetClass=Event.class)
-    private List<Event> events;
+//    @OneToMany(mappedBy="employee")
+//    @ElementCollection(targetClass=Event.class)
+//    private List<Event> events;
 
-    @OneToMany(mappedBy="employee")
-    @ElementCollection(targetClass=Announcement.class)
-    private List<Announcement> announcements;
+//    @OneToMany(mappedBy="employee")
+//    @ElementCollection(targetClass=Announcement.class)
+//    private List<Announcement> announcements;
 
-    @OneToMany(mappedBy="employee")
-    @ElementCollection(targetClass=SupplyRequest.class)
-    private List<SupplyRequest> supplyRequests;
+//    @OneToMany(mappedBy="employee")
+//    @ElementCollection(targetClass=SupplyRequest.class)
+//    private List<SupplyRequest> supplyRequests;
 
     public Employee() {
     }
@@ -97,6 +100,14 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isCanContact() {
@@ -163,37 +174,37 @@ public class Employee {
         this.loc = loc;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
-
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
-
-    public List<Announcement> getAnnouncements() {
-        return announcements;
-    }
-
-    public void setAnnouncements(List<Announcement> announcements) {
-        this.announcements = announcements;
-    }
-
-    public List<SupplyRequest> getSupplyRequests() {
-        return supplyRequests;
-    }
-
-    public void setSupplyRequests(List<SupplyRequest> supplyRequests) {
-        this.supplyRequests = supplyRequests;
-    }
+//    public List<Ticket> getTickets() {
+//        return tickets;
+//    }
+//
+//    public void setTickets(List<Ticket> tickets) {
+//        this.tickets = tickets;
+//    }
+//
+//    public List<Event> getEvents() {
+//        return events;
+//    }
+//
+//    public void setEvents(List<Event> events) {
+//        this.events = events;
+//    }
+//
+//    public List<Announcement> getAnnouncements() {
+//        return announcements;
+//    }
+//
+//    public void setAnnouncements(List<Announcement> announcements) {
+//        this.announcements = announcements;
+//    }
+//
+//    public List<SupplyRequest> getSupplyRequests() {
+//        return supplyRequests;
+//    }
+//
+//    public void setSupplyRequests(List<SupplyRequest> supplyRequests) {
+//        this.supplyRequests = supplyRequests;
+//    }
 
     @Override
     public String toString() {

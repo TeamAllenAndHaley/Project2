@@ -11,7 +11,7 @@ export class AuthService {
     console.log(id + ' ' + pw);
     let url = 'http://localhost:8100/api/login/auth';
     return this.httpClient.post(url, {"email":id, "password":pw}).subscribe(
-      res => console.log("test")
+      res => console.log(res)
     );
     // return this.httpClient.get(url).subscribe(res => console.log("test"));
   }

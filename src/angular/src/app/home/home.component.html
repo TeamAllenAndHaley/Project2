@@ -1,8 +1,11 @@
-<mat-menu>
-  <button routerLink="/" mat-menu-item>home</button>
-  <button routerLink="/submit" mat-menu-item>submit</button>
-  <button routerLink="/login" mat-menu-item>login</button>
-  <button (click)="onLogout()" mat-menu-item>logout</button>
-</mat-menu>
+<mat-toolbar>
+  <mat-menu #menu="matMenu">
+    <!-- <button *ngFor="item in navigation" routerLink="item.target" mat-menu-item>{{ item.name }}</button> -->
+    <button mat-menu-item>home</button>
+    <button mat-menu-item>submit</button>
+    <button routerLink="/login" mat-menu-item>login</button>
+    <button (click)="onLogout()" mat-menu-item>logout</button>
+  </mat-menu>
+</mat-toolbar>
 home works!
 <router-outlet></router-outlet>

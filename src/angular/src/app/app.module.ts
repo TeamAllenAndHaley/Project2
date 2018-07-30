@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -40,6 +41,7 @@ import { NewComponent } from './login/new/new.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatToolbarModule,
     MatMenuModule,
     MatInputModule,
     MatCardModule,

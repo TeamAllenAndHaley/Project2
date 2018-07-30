@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     target: '/'
   }, {
     name: 'submit',
-    target: 'submit'
+    target: '/submit'
   }];
 
   constructor(

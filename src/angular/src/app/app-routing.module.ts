@@ -15,7 +15,7 @@ import { AuthUnguardService } from './service/auth-unguard.service';
 const routes: Routes = [{
     path: '',
     component: HomeComponent,
-    canActivate: [ AuthGuardService ],
+    // canActivate: [ AuthGuardService ],
     children: [{
       path: '',
       component: DashboardComponent

@@ -1,0 +1,4 @@
+button[name="logout"] {
+    position: absolute;
+    right: 16px;
+}

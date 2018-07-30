@@ -1,11 +1,9 @@
 <mat-toolbar class="mat-typography">
-  <!-- <mat-menu #menu="matMenu"> -->
-    <!-- <button *ngFor="item in navigation" routerLink="item.target" mat-menu-item>{{ item.name }}</button> -->
-    <button routerLink="/" mat-button>home</button>
-    <button routerLink="/submit" mat-button>submit</button>
-    <button routerLink="/login" mat-button>login (remove this button when done)</button>
-    <button (click)="onLogout()" mat-button>logout</button>
-  <!-- </mat-menu> -->
+  <!-- <button *ngFor="item in navigation" routerLink="item.target" mat-menu-item>{{ item.name }}</button> -->
+  <button routerLink="/" mat-button>home</button>
+  <button routerLink="/submit" mat-button>submit</button>
+  <button routerLink="/login" mat-button>login (remove this button when done)</button>
+  <button (click)="onLogout()" mat-button>logout</button>
 </mat-toolbar>
 home works!
 <router-outlet></router-outlet>

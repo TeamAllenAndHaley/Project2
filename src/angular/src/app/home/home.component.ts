@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     name: 'home',
     target: '/'
   }, {
-    name: 'submit',
+    name: 'contact forms',
     target: '/submit'
   }];
 

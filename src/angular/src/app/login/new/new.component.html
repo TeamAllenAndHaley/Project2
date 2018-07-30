@@ -21,20 +21,28 @@
       name="password"
       [(ngModel)]="formData.password"
       placeholder="password"
+      [formControl]="passwordControl"
+      type="password"
     >
   </mat-form-field>
 
   <mat-form-field *ngIf="newUser">
     <mat-label>confirm password</mat-label>
+
     <input matInput required
       class="input"
       name="password"
       [(ngModel)]="formData.confirmPassword"
       placeholder="password"
+      [formControl]="passwordControl"
+      type="password"
     >
+
+    <mat-error *ngIf="passwordControl.invalid">passwords do not match</mat-error>
   </mat-form-field>
 
-  <button type="submit" (submit)="onSubmit()" mat-button *ngIf="!newUser">register</button>
-  <button type="submit" (submit)="onPasswordSubmit()" mat-button *ngIf="newUser">register</button>
+  <!-- <button type="submit" mat-button>register</button> -->
+  <button type="submit" (click)="onSubmit()" mat-button *ngIf="!newUser">submit</button>
+  <button type="submit" (click)="onPasswordSubmit()" mat-button *ngIf="newUser">register</button>
 </form>
   

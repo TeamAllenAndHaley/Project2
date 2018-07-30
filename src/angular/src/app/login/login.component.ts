@@ -9,7 +9,7 @@ import { Router } from 'node_modules/@angular/router';
 export class LoginComponent implements OnInit {
 
   firstLogin: boolean;
-  toggleText: string = 'new user?';
+  toggleText: string = 'new user?'; // TODO: fix default /login/new
 
   constructor(private router: Router) { }
 

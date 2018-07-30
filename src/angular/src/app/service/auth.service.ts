@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from 'node_modules/@angular/common/http';
-import {Observable} from "rxjs/internal/Observable";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  newUser: boolean;
+
   constructor(private httpClient: HttpClient) { }
 
- login(id: string, pw: string) {
+  login(id: string, pw: string) {
     let url = '/api/login/auth';
 
     return this.httpClient.post(url, {
@@ -20,25 +21,33 @@ export class AuthService {
     });
   }
 
-  private newUser: boolean;
-  isNewUser(id: string): boolean {
+  isNewUser(id: string, callback) {
     // get password by email
     // if exists && password is empty/null
     //    return true
     // else return false
     let url = '/api/login/new';
-    this.httpClient.post<Login>(url, {
+
+    return this.httpClient.post<any>(url, {
       email: id,
       password: null
-    }).subscribe(res => {
-      if(res.password == null) {
-        this.newUser = true;
-      } else {
-        this.newUser = false;
-      }
-    });
+    }).subscribe(
+      data => callback(data)
+    );
+      
+    //   {
+    //   console.log(data);
+    //   if(data.password == null) {
+    //     // this.newUser = true;
+    //     return true;
+    //   } else {
+    //     // this.newUser = false;
+    //     return false;
+    //   }
+    // });
 
-    return this.newUser;
+    // console.log('service ran');
+    // return this.newUser;
   }
 
   register(id: string, pw: string) {

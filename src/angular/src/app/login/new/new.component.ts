@@ -34,9 +34,7 @@ export class NewComponent implements OnInit {
 
   onSubmit(): void {
     this.authService.isNewUser(this.formData.email, (data) => {
-      console.log(data);
       this.newUser = (data.password) ? false : true;
-      console.log(this.newUser);
     });
   }
 
@@ -44,7 +42,6 @@ export class NewComponent implements OnInit {
     //send password to backend with email, so that user can be looked up and password updated
     this.authService.addPassword(this.formData.email, this.formData.password);
     this.router.navigate(['/']);
-    console.log("wrong register");
   }
 
   validateConfirmPassword() {

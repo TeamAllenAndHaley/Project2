@@ -34,20 +34,6 @@ export class AuthService {
     }).subscribe(
       data => callback(data)
     );
-      
-    //   {
-    //   console.log(data);
-    //   if(data.password == null) {
-    //     // this.newUser = true;
-    //     return true;
-    //   } else {
-    //     // this.newUser = false;
-    //     return false;
-    //   }
-    // });
-
-    // console.log('service ran');
-    // return this.newUser;
   }
 
   register(id: string, pw: string) {

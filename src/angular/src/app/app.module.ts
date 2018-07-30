@@ -9,6 +9,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 
 import { AppComponent } from './app.component';
@@ -46,6 +47,7 @@ import { NewComponent } from './login/new/new.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatStepperModule
   ],
   providers: [],

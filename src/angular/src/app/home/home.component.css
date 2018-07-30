@@ -1,4 +1,21 @@
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+}
+
 button[name="logout"] {
     position: absolute;
     right: 16px;
+}
+
+h3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+div {
+    margin-top: 64px;
+    padding: 35px 17vw;
 }

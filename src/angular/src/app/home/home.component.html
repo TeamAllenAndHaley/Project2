@@ -1,6 +1,8 @@
-<mat-toolbar class="mat-typography">
-  <button *ngFor="let item of navigation" [routerLink]="item.target" mat-button>{{ item.name }}</button>
-  <button name="logout" (click)="onLogout()" mat-button>logout</button>
+<mat-toolbar class="mat-typography" >
+  <button *ngFor="let item of navigation" [routerLink]="item.target" mat-button>{{ item.name | uppercase }}</button>
+  <h3>Resource Portal <span class="mat-caption">For Humans</span></h3>
+  <button name="logout" (click)="onLogout()" mat-button>{{ 'logout' | uppercase }}</button>
 </mat-toolbar>
-home works!
-<router-outlet></router-outlet>
+<div>
+  <router-outlet></router-outlet>
+</div>

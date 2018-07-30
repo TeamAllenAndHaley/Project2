@@ -28,6 +28,6 @@
     <mat-error *ngIf="passwordControl.invalid">password is required to login</mat-error>
   </mat-form-field>
 
-  <button type="submit" mat-button>sign in</button>
+  <button type="submit" mat-button>{{ 'sign in' | uppercase }}</button>
 </form>
-<button (click)="onToggleFirstLogin()" mat-button>new user?</button>
+<button (click)="onToggleFirstLogin()" mat-button>{{ 'new user?' | uppercase }}</button>

@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+button {
+    font-size: 0.7em;
+}
+
 h1, caption {
     color: white;
 }

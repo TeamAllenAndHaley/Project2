@@ -41,8 +41,8 @@
     <mat-error *ngIf="passwordControl.invalid">passwords do not match</mat-error>
   </mat-form-field>
 
-  <button type="submit" (click)="onSubmit()" mat-button *ngIf="!newUser">submit</button>
-  <button type="submit" (click)="onPasswordSubmit()" mat-button *ngIf="newUser">register</button>
+  <button type="submit" (click)="onSubmit()" mat-button *ngIf="!newUser">{{ 'submit' | uppercase }}</button>
+  <button type="submit" (click)="onPasswordSubmit()" mat-button *ngIf="newUser">{{ 'register' | uppercase }}</button>
 </form>
-<button (click)="onToggleFirstLogin()" mat-button>returning user?</button>
+<button (click)="onToggleFirstLogin()" mat-button>{{ 'returning user?' | uppercase }}</button>
   

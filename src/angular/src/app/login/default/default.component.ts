@@ -28,4 +28,8 @@ export class DefaultComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  onToggleFirstLogin(): void {
+    this.router.navigate(['/login/new']);
+  }
+
 }

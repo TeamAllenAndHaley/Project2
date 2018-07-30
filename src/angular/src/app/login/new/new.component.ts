@@ -58,4 +58,8 @@ export class NewComponent implements OnInit {
     };
   }
 
+  onToggleFirstLogin(): void {
+    this.router.navigate(['/login']);
+  }
+
 }

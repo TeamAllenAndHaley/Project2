@@ -10,11 +10,12 @@ import { DefaultComponent } from './login/default/default.component';
 import { NewComponent } from './login/new/new.component';
 import { RequestComponent } from './home/submit/request/request.component';
 import { TicketComponent } from './home/submit/ticket/ticket.component';
+import { AuthUnguardService } from './service/auth-unguard.service';
 
 const routes: Routes = [{
     path: '',
     component: HomeComponent,
-    // canActivate: [ AuthGuardService ],
+    canActivate: [ AuthGuardService ],
     children: [{
       path: '',
       component: DashboardComponent
@@ -32,6 +33,7 @@ const routes: Routes = [{
   }, {
     path: 'login',
     component: LoginComponent,
+    canActivate: [ AuthUnguardService ],
     children: [{
       path: '',
       component: DefaultComponent

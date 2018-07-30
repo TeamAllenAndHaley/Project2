@@ -2,7 +2,6 @@ package com.allenhaley.dao;
 
 import com.allenhaley.model.Employee;
 import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,8 +20,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public void add(Employee obj) {
-        sessionFactory.getCurrentSession().save(obj);
+    public Employee add(Employee obj) {
+        Integer id = (Integer)sessionFactory.getCurrentSession().save(obj);
+        obj.setEmpId(id);
+        return obj;
     }
 
     @Override

@@ -1,17 +1,14 @@
 package com.allenhaley.dao;
 
 import com.allenhaley.model.Housing;
-import org.hibernate.Query;
-import org.hibernate.Session;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
 public class HousingDaoImpl implements HousingDao {
     @Override
-    public void add(Housing obj) {
-
+    public Housing add(Housing obj) {
+        return null;
     }
 
     @Override

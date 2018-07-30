@@ -18,8 +18,10 @@ public class EventDaoImpl implements EventDao {
     }
 
     @Override
-    public void add(Event obj) {
-        sessionFactory.getCurrentSession().save(obj);
+    public Event add(Event obj) {
+        Integer id = (Integer)sessionFactory.getCurrentSession().save(obj);
+        obj.setEvtId(id);
+        return obj;
     }
 
     @Override

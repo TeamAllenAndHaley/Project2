@@ -17,7 +17,7 @@ export class NewComponent implements OnInit {
   //   confirmPassword: new FormControl('', [Validators.required, this.validateConfirmPassword.bind(this)])
   // });
   passwordControl: FormControl = new FormControl();
-  newUser: boolean = true; // TODO: remove
+  newUser: boolean;
 
   constructor(
     private authService: AuthService,

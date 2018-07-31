@@ -19,7 +19,7 @@ export class NewComponent implements OnInit {
   passwordControl: FormControl = new FormControl();
 
   newUser: boolean;
-  
+
   constructor(
     private authService: AuthService,
     private router: Router,

@@ -17,4 +17,9 @@ public class TicketService {
     public List<Ticket> getAll() {
         return (ArrayList<Ticket>)ticketDao.all();
     }
+
+    @Transactional
+    public Ticket add(Ticket t) {
+        return ticketDao.add(t);
+    }
 }

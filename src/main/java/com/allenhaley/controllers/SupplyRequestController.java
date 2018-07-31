@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/supplyRequests")
+@RequestMapping("/requests")
 @ResponseBody
 public class SupplyRequestController {
 
@@ -41,7 +41,7 @@ public class SupplyRequestController {
         return new ResponseEntity<>(supplyRequest, HttpStatus.CREATED);
     }
 
-    @GetMapping(path="/requests", produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+    @GetMapping(path="/view", produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<List<SupplyRequest>> getRequestsByEmployeeId(int id) {
         ArrayList<SupplyRequest> requests = requestService.getSupplyRequestsById(id);
 

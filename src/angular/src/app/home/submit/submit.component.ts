@@ -13,4 +13,8 @@ export class SubmitComponent implements OnInit {
   ngOnInit() {
   }
 
+  getUrl(): string {
+    return this.router.url;
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { RequestService } from '../../../service/request.service';
 
 @Component({
   selector: 'app-request',
@@ -8,6 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class RequestComponent implements OnInit {
   formData: any = {};
+  other: string;
 
   requestForm: FormGroup = new FormGroup({
     toiletPaper: new FormControl(),
@@ -25,13 +27,27 @@ export class RequestComponent implements OnInit {
     otherInput: new FormControl()
   });
 
-  constructor() { }
+  constructor(private requestService: RequestService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.requestForm.get(['toiletPaper']).value);
+    this.requestService.createRequest(
+      this.requestForm.get(['toiletPaper']).value,
+      this.requestForm.get(['paperTowels']).value,
+      this.requestForm.get(['dishSoap']).value,
+      this.requestForm.get(['detergent']).value,
+      this.requestForm.get(['sponges']).value,
+      this.requestForm.get(['garbageBags']).value,
+      this.requestForm.get(['handSoap']).value,
+      this.requestForm.get(['potsPans']).value,
+      this.requestForm.get(['cups']).value,
+      this.requestForm.get(['silverware']).value,
+      this.requestForm.get(['flatware']).value,
+      this.requestForm.get(['otherInput']).value,
+      JSON.parse(localStorage.getItem('userLoggedIn')).empId
+    );
   }
 
 }

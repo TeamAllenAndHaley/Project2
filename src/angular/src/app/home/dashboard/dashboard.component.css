@@ -1,0 +1,13 @@
+:host > div > mat-card {
+    margin-bottom: 20px;
+}
+
+mat-card[name='housing'] {
+    margin-right: 20px;
+}
+
+mat-card[name='housing'],
+mat-card[name='training'] {
+    display: inline-block;
+    width: calc(50% - 58px);
+}

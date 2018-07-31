@@ -2,10 +2,10 @@
   <mat-card-content>
     <h4>Submission Forms</h4>
     <mat-button-toggle-group>
-      <mat-button-toggle mat-button [checked]="this.router.url === '/submit/request'">
+      <mat-button-toggle mat-button [checked]="getUrl() === '/submit/request'">
         <a routerLink="/submit/request">supply request</a>
       </mat-button-toggle>
-      <mat-button-toggle mat-button disabled [checked]="this.router.url === '/submit/ticket'">
+      <mat-button-toggle mat-button disabled [checked]="getUrl() === '/submit/ticket'">
         <a routerLink="/submit/ticket">help ticket</a>
       </mat-button-toggle>
     </mat-button-toggle-group>

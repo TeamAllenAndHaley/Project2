@@ -1,5 +1,44 @@
-<div>
+<div *ngIf="hr" class="mat-typography">
   <mat-card>
-    <h4>Section</h4>
+    <mat-card-content>
+      <h4>Requires Attention</h4>
+    </mat-card-content>
   </mat-card>
 </div>
+
+<div *ngIf="!hr" class="mat-typography">
+  <mat-card>
+    <mat-card-content>
+      <h3>Associate Information</h3>
+      <p>
+        Hello, {{ user.fName + ' ' + user.lName }}.<br>
+        Below, you will see where you will attend your training program.<br>
+        Additionally, you are provided where you will stay during your training.
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card name="training">
+    <mat-card-content>
+      <h4>Training Information</h4>
+      <h5>City</h5>
+      <p>
+        <span>{{ user.loc.location }}</span>
+      </p>
+      <h5>Classroom</h5>
+      <p>
+        <span>{{ user.loc.classLoc }}</span>
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card name="housing">
+    <mat-card-content>
+      <h4>Housing Assignment</h4>
+      <p>
+        info here
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+  

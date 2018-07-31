@@ -8,13 +8,14 @@ export class RequestService {
 
   constructor(private httpClient: HttpClient) { }
 
-  submit(toiletPaper: boolean, paperTowels: boolean, dishSoap: boolean, detergent: boolean, sponges: boolean, garbageBags: boolean,
+  createRequest(toiletPaper: boolean, paperTowels: boolean, dishSoap: boolean, detergent: boolean, sponges: boolean, garbageBags: boolean,
          handSoap: boolean, potsPans: boolean, cups: boolean, silverware: boolean, flatware: boolean,
          other: string, empId: number) {
     let url = '/api/requests/add';
 
     return this.httpClient.post(url, {
       tp: toiletPaper,
+      paperTowels: paperTowels,
       dishSoap: dishSoap,
       dishwasherSoap: detergent,
       sponge: sponges,

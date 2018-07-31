@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  hr: boolean;
+  user: any;
+
   constructor() { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('userLoggedIn'));
+    this.hr = this.user.department !== 'Revature employee';
+    console.log(this.user);
   }
 
 }

@@ -3,31 +3,29 @@
     <mat-card-content>
       <h4>Requires Attention</h4>
     </mat-card-content>
+    <!-- <mat-card-content>
+      
+    </mat-card-content> -->
   </mat-card>
 </div>
 
 <div *ngIf="!hr" class="mat-typography">
   <mat-card>
     <mat-card-content>
-      <h3>Associate Information</h3>
-      <p>
-        Hello, {{ user.fName + ' ' + user.lName }}.<br>
-        Below, you will see where you will attend your training program.<br>
-        Additionally, you are provided where you will stay during your training.
-      </p>
+      <h3>Information for Associate {{ user.fName + ' ' + user.lName }}</h3>
     </mat-card-content>
   </mat-card>
 
   <mat-card name="training">
     <mat-card-content>
       <h4>Training Information</h4>
-      <h5>City</h5>
       <p>
-        <span>{{ user.loc.location }}</span>
+        <span>City</span><br>
+        {{ user.loc.location }}
       </p>
-      <h5>Classroom</h5>
       <p>
-        <span>{{ user.loc.classLoc }}</span>
+        <span>Classroom</span><br>
+        {{ user.loc.classLoc }}
       </p>
     </mat-card-content>
   </mat-card>
@@ -36,7 +34,14 @@
     <mat-card-content>
       <h4>Housing Assignment</h4>
       <p>
-        info here
+        <span>Checked In?</span><br>
+        {{ user.hasKeys && 'Yes' }}
+      </p>
+      <p>
+        <span>Address</span><br>
+        {{ user.h.comp.complexName }}<br>
+        {{ user.h.comp.streetAddress + ', Unit ' + user.h.aptRoom }}<br>
+        {{ user.h.comp.city + ', ' + user.h.comp.state + ' ' + user.h.comp.zip }}
       </p>
     </mat-card-content>
   </mat-card>

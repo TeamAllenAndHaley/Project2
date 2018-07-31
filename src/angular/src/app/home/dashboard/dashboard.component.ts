@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../../service/request.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ export class DashboardComponent implements OnInit {
   hr: boolean;
   user: any;
 
-  constructor() { }
+  constructor(private requestService: RequestService) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('userLoggedIn'));

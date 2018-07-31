@@ -1,3 +1,23 @@
-<p>
-  request works!
-</p>
+<form #ngRequest="ngForm" [formGroup]="requestForm" (submit)="onSubmit()">
+  <!-- email, name, apartment and apartment number should be known by system -->
+  <mat-checkbox formControlName="toiletPaper">Toilet Paper</mat-checkbox>
+  <mat-checkbox formControlName="paperTowels">Paper Towels</mat-checkbox>
+  <mat-checkbox formControlName="dishSoap">Liquid Dish Soap</mat-checkbox>
+  <mat-checkbox formControlName="detergent">Dish Detergent</mat-checkbox>
+  <mat-checkbox formControlName="sponges">Sponges</mat-checkbox>
+  <mat-checkbox formControlName="garbageBags">Garbage Bags</mat-checkbox>
+  <mat-checkbox formControlName="handSoap">Hand Soap</mat-checkbox>
+  <mat-checkbox formControlName="potsPans">Pots & Pans</mat-checkbox>
+  <mat-checkbox formControlName="cups">Cups</mat-checkbox>
+  <mat-checkbox formControlName="silverware">Silverware</mat-checkbox>
+  <mat-checkbox formControlName="flatware">Flatware</mat-checkbox>
+  <mat-checkbox formControlName="other" [(ngModel)]="other">Other</mat-checkbox>
+  <mat-form-field>
+    <input matInput required
+      placeholder="other requests" 
+      [disabled]="!other"
+    >
+    <mat-error>test</mat-error>
+  </mat-form-field>
+  <button mat-button>{{ 'request supplies' | uppercase }}</button>
+</form>

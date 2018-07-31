@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from 'node_modules/@angular/router';
 
 @Component({
   selector: 'app-submit',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

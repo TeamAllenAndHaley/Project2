@@ -1,0 +1,19 @@
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px 10vw;
+}
+
+mat-checkbox {
+    display: block;
+}
+
+mat-form-field {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+button {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}

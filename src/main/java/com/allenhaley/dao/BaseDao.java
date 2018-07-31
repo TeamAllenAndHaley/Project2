@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public interface BaseDao<T> {
 
-    void add(T obj);
+    T add(T obj);
 
     Collection<T> all();
 

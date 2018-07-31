@@ -18,8 +18,10 @@ public class AnnouncementDaoImpl implements AnnouncementDao {
     }
 
     @Override
-    public void add(Announcement obj) {
-        sessionFactory.getCurrentSession().save(obj);
+    public Announcement add(Announcement obj) {
+        Integer id = (Integer)sessionFactory.getCurrentSession().save(obj);
+        obj.setaId(id);
+        return obj;
     }
 
     @Override

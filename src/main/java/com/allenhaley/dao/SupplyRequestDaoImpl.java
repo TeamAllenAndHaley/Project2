@@ -21,7 +21,7 @@ public class SupplyRequestDaoImpl implements SupplyRequestDao {
 
     @Override
     public SupplyRequest add(SupplyRequest obj) {
-        Integer id = (Integer)sessionFactory.getCurrentSession().save(obj);
+        Long id = (Long) sessionFactory.getCurrentSession().save(obj);
         obj.setReqId(id);
         return obj;
     }

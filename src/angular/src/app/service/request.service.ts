@@ -15,6 +15,7 @@ export class RequestService {
 
     return this.httpClient.post(url, {
       tp: toiletPaper,
+      paperTowels: paperTowels,
       dishSoap: dishSoap,
       dishwasherSoap: detergent,
       sponge: sponges,

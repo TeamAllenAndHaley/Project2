@@ -3,12 +3,12 @@ package com.allenhaley.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "supplyrequest", schema = "public")
+@Table(name="supplyrequest", schema="public")
 public class SupplyRequest {
 
     @Id
     @Column(name="req_id")
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long reqId;
 
     @Column(name="tp")
@@ -47,9 +47,8 @@ public class SupplyRequest {
     @Column(name="other")
     private String other;
 
-    @ManyToOne
-    @JoinColumn(name="emp_id")
-    private Employee employee;
+    @Column(name="emp_id")
+    private int empId;
 
     public SupplyRequest() {
     }
@@ -158,13 +157,14 @@ public class SupplyRequest {
         this.other = other;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public int getEmpId() {
+        return empId;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmpId(int empId) {
+        this.empId = empId;
     }
+
 
     @Override
     public String toString() {
@@ -182,7 +182,7 @@ public class SupplyRequest {
                 ", silverware=" + silverware +
                 ", flatware=" + flatware +
                 ", other='" + other + '\'' +
-                ", employee=" + employee +
+                ", empId=" + empId +
                 '}';
     }
 }

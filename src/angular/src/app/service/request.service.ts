@@ -29,6 +29,18 @@ export class RequestService {
     }).subscribe(res => console.log(res));
   }
 
+  getByEmp(empId: number) {
+    let url = '/api/requests/view'
+
+    return this.httpClient.get<Request[]>(url)
+      .subscribe(res => {
+        res.forEach(res => {
+          //update method, (use callback?) so that this array can update the view for a certain employee
+          console.log(res);
+        });
+      });
+  }
+
   getAll() {
     let url = '/api/requests/all';
 

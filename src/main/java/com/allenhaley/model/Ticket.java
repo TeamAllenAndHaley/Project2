@@ -9,6 +9,7 @@ public class Ticket {
 
     @Id
     @Column(name="ticket_id")
+    @GeneratedValue
     private long ticketId;
 
     @Column(name="ticket_date")

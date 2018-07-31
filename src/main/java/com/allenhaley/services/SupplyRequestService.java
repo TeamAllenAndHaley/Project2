@@ -1,6 +1,7 @@
 package com.allenhaley.services;
 
-import com.allenhaley.dao.BaseDao;
+import com.allenhaley.dao.SupplyRequestDao;
+import com.allenhaley.dao.SupplyRequestDaoImpl;
 import com.allenhaley.model.SupplyRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,15 +11,20 @@ import java.util.List;
 
 @Service
 public class SupplyRequestService {
-    BaseDao<SupplyRequest> supplyRequestDao;
+    private SupplyRequestDao supplyRequestDao = new SupplyRequestDaoImpl();
 
     @Transactional
-    public void saveSupplyRequest(SupplyRequest supplyRequest) {
-        supplyRequestDao.add(supplyRequest);
+    public SupplyRequest saveSupplyRequest(SupplyRequest supplyRequest) {
+        return supplyRequestDao.add(supplyRequest);
     }
 
     @Transactional(readOnly=true)
     public List<SupplyRequest> listSupplyRequest() {
         return (ArrayList<SupplyRequest>)supplyRequestDao.all();
+    }
+
+    @Transactional
+    public ArrayList<SupplyRequest> getSupplyRequestsById(int id) {
+        return (ArrayList<SupplyRequest>)supplyRequestDao.getByEmpId(id);
     }
 }

@@ -2,7 +2,6 @@ package com.allenhaley.dao;
 
 import com.allenhaley.model.Location;
 import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,8 +21,8 @@ public class LocationDaoImpl implements LocationDao {
     }
 
     @Override
-    public void add(Location obj) {
-
+    public Location add(Location obj) {
+        return null;
     }
 
     @Override

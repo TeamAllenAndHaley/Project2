@@ -41,7 +41,7 @@ public class LoginController {
     }
 
     @CrossOrigin
-    @PostMapping(path="/new",produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_ATOM_XML_VALUE}, consumes="application/json")
+    @PostMapping(path="/new",produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE}, consumes="application/json")
     public ResponseEntity<Login> isNewUser(@RequestBody Login login) {
         Employee employee = employeeService.findEmployee(login.getEmail());
         if(employee.getPassword() == null) {
@@ -54,7 +54,7 @@ public class LoginController {
     }
 
     @CrossOrigin
-    @PostMapping(path="/register",produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_ATOM_XML_VALUE}, consumes="application/json")
+    @PostMapping(path="/register",produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE}, consumes="application/json")
     public ResponseEntity<Employee> addNewPassword(@RequestBody Login login) {
         Employee employee = employeeService.findEmployee(login.getEmail());
         employee.setPassword(login.getPassword());

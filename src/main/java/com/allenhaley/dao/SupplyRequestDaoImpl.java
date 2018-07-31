@@ -4,11 +4,13 @@ import com.allenhaley.model.SupplyRequest;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
+@Repository
 public class SupplyRequestDaoImpl implements SupplyRequestDao {
     private SessionFactory sessionFactory;
 
@@ -18,8 +20,10 @@ public class SupplyRequestDaoImpl implements SupplyRequestDao {
     }
 
     @Override
-    public void add(SupplyRequest obj) {
-        sessionFactory.getCurrentSession().save(obj);
+    public SupplyRequest add(SupplyRequest obj) {
+        Integer id = (Integer)sessionFactory.getCurrentSession().save(obj);
+        obj.setReqId(id);
+        return obj;
     }
 
     @Override
@@ -46,5 +50,12 @@ public class SupplyRequestDaoImpl implements SupplyRequestDao {
     @Override
     public void update(SupplyRequest obj) {
         sessionFactory.getCurrentSession().saveOrUpdate(obj);
+    }
+
+    @Override
+    public List<SupplyRequest> getByEmpId(int id) {
+        String hql = "From Supplyrequest sr Where sr.emp_id= :id";
+        Query q = sessionFactory.getCurrentSession().createQuery(hql);
+        return q.list();
     }
 }

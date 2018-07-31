@@ -8,13 +8,15 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/supplyRequests")
+@RequestMapping("/requests")
 @ResponseBody
 public class SupplyRequestController {
 
@@ -25,9 +27,23 @@ public class SupplyRequestController {
         this.requestService = requestService;
     }
 
-    @GetMapping(path="/all", produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path="/all", produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<List<SupplyRequest>> getAllRequests() {
         List<SupplyRequest> requests = requestService.listSupplyRequest();
+
+        return new ResponseEntity<>(requests, HttpStatus.OK);
+    }
+
+    @PostMapping(path="/add",produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE}, consumes="application/json")
+    public ResponseEntity<SupplyRequest> addRequest(SupplyRequest request) {
+        SupplyRequest supplyRequest = requestService.saveSupplyRequest(request);
+
+        return new ResponseEntity<>(supplyRequest, HttpStatus.CREATED);
+    }
+
+    @GetMapping(path="/view", produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
+    public ResponseEntity<List<SupplyRequest>> getRequestsByEmployeeId(int id) {
+        ArrayList<SupplyRequest> requests = requestService.getSupplyRequestsById(id);
 
         return new ResponseEntity<>(requests, HttpStatus.OK);
     }

@@ -4,11 +4,13 @@ import com.allenhaley.model.Ticket;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
+@Repository
 public class TicketDaoImpl implements TicketDao {
     private SessionFactory sessionFactory;
 
@@ -18,8 +20,10 @@ public class TicketDaoImpl implements TicketDao {
     }
 
     @Override
-    public void add(Ticket obj) {
-        sessionFactory.getCurrentSession().save(obj);
+    public Ticket add(Ticket obj) {
+        Integer id = (Integer)sessionFactory.getCurrentSession().save(obj);
+        obj.setTicketId(id);
+        return obj;
     }
 
     @Override

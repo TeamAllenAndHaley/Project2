@@ -8,6 +8,7 @@ public class SupplyRequest {
 
     @Id
     @Column(name="req_id")
+    @GeneratedValue
     private long reqId;
 
     @Column(name="tp")
@@ -47,6 +48,7 @@ public class SupplyRequest {
     private String other;
 
     @ManyToOne
+    @JoinColumn(name="emp_id")
     private Employee employee;
 
     public SupplyRequest() {
